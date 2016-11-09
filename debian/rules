@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+#DH_VERBOSE = 1
+
+
+%:
+	dh $@ 
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH) \
+	-DTJPEG_INCLUDE_DIR=/usr/include \
+	-DTJPEG_LIBRARY=/usr/lib/$(DEB_HOST_MULTIARCH)/libturbojpeg.a \
+	-DVGL_DOCDIR=/usr/share/doc/virtualgl/ \
+	-DVGL_LIBDIR=/usr/lib32/ \
+	-DVGL_FAKELIBDIR=/usr/fakelib32/
+
+# Remove everything that is not the libraries
+override_dh_auto_install:
+	dh_auto_install
+	rm -rf $(CURDIR)/debian/virtualgl-ia32-libs/usr/bin
+	rm -rf $(CURDIR)/debian/virtualgl-ia32-libs/usr/share/doc
+	rm -rf $(CURDIR)/debian/virtualgl-ia32-libs/usr/include

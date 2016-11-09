@@ -1,0 +1,5 @@
+virtualgl-ia32 (2.4-1+c9+2) calibre9; urgency=low
+
+  * Initial release, package only with the ia32 libs for virtualgl.
+
+ -- Ana Guerrero <ana-externe.guerrero@edf.fr>  Wed, 09 Nov 2016 14:23:02 +0100

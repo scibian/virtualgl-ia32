@@ -1,0 +1,6 @@
+This package provides the ia32 libs for virtualgl.
+Ideally, virtualgl would have been a multiarch package
+so this package wouldn't have been necessary but once
+virtualgl is on production in several clusters, building
+this package only with the libs is the best solution
+to avoid breaking anything.
